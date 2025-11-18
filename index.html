@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>To-Do List with Categories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app" role="application" aria-label="To-do list with categories">
+    <header>
+      <h1>To-Do List — Categories & Drag-Drop</h1>
+      <div class="controls">
+        <select id="sortSelect" title="Sort">
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+          <option value="alpha">A → Z</option>
+        </select>
+        <button id="clearCompleted">Clear Completed</button>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="Categories">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>Categories</strong>
+        <button id="addSample" class="icon-btn" title="Add sample categories">＋</button>
+      </div>
+
+      <div class="categories" id="categories"></div>
+
+      <div class="new-cat">
+        <input id="newCategoryInput" placeholder="New category" aria-label="New category">
+        <button id="addCategoryBtn">Add</button>
+      </div>
+
+      <div style="margin-top:14px;color:var(--muted);font-size:13px">Tip: Click a category to filter tasks. Drag tasks to reorder.</div>
+    </aside>
+
+    <main class="main">
+      <div class="add-row">
+        <input id="taskInput" type="text" placeholder="What do you want to do?" aria-label="New task">
+        <select id="categorySelect" aria-label="Choose category"></select>
+        <button id="addTaskBtn">Add Task</button>
+      </div>
+
+      <div class="filters">
+        <label class="small">Search:</label>
+        <input id="searchInput" placeholder="Search tasks...">
+        <label class="small">Show:</label>
+        <select id="statusFilter">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+
+      <div class="task-list" id="taskList" aria-live="polite"></div>
+
+      <footer id="footer"></footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
